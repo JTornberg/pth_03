@@ -551,15 +551,13 @@ public class EvalSyntaxTests {
             "| eval a=ltrim(\"A\",)",
             "| eval a=rtrim(\"A\",)"
     })
-    void testTrimSyntaxFails(String arg) {
+    void testInvalidTrimSyntaxFails(String arg) {
         Assertions.assertThrows(ParseCancellationException.class, () -> {
             final CharStream input = CharStreams.fromString(arg);
             final DPLLexer lexer = new DPLLexer(input);
             final DPLParser parser = new DPLParser(new CommonTokenStream(lexer));
             parser.setErrorHandler(new BailErrorStrategy()); // first syntax error aborts parsing
-            final DPLParser.RootContext root = parser.root();
-            Assertions.assertNotNull(root);
-            Assertions.assertEquals(0, parser.getNumberOfSyntaxErrors());
+            parser.root();
         });
     }
 }
