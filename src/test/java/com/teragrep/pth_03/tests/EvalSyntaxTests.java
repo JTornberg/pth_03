@@ -546,7 +546,7 @@ public class EvalSyntaxTests {
             "| eval a=rtrim()",
             "| eval a=trim(\" A \", \" B \", \" C \")",
             "| eval a=ltrim(\" A \", \" B \", \" C \")",
-            "| eval a=ltrim(\" A \", \" B \", \" C \")",
+            "| eval a=rtrim(\" A \", \" B \", \" C \")",
             "| eval a=trim(\"A\",)",
             "| eval a=ltrim(\"A\",)",
             "| eval a=rtrim(\"A\",)"
